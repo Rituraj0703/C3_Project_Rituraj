@@ -68,8 +68,17 @@ public class Restaurant {
     }
 
     public int getOrderValue(ArrayList<String> itemNames) throws ItemNotSelectedException {
+        if (itemNames.size() == 0) {
+            throw new ItemNotSelectedException();
+        }
+        int orderValue =0;
+        Item item;
+        for(int i =0; i < itemNames.size(); i++) {
+            item = findItemByName(itemNames.get(i));
+            orderValue = orderValue + item.getPrice();
+        }
 
-        return 0;
+        return orderValue;
     }
 
 

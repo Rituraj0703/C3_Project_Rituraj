@@ -62,6 +62,7 @@ class RestaurantServiceTest {
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //>>>>>>>>>>>>>>>>>>>>>>METHOD ADDED FOR FACTORING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     private void addRestaurant(String restaurantName) {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
@@ -69,4 +70,6 @@ class RestaurantServiceTest {
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
+    //<<<<<<<<<<<<<<<<<<<<METHODS ADDED FOR FACTORING>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
