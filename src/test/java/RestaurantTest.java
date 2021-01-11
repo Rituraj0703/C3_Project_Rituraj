@@ -63,6 +63,33 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER VALUE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void selecting_items_in_menu_should_calculate_the_total_order_value() throws ItemNotSelectedException{
+        addRestaurant();
+
+        ArrayList<String> itemNames = new ArrayList<String>();
+        itemNames.add("Sweet corn soup");
+        itemNames.add("Vegetable lasagne");
+        itemNames.add("Chicken lasagne");
+
+        int initialOrderValue = restaurant.getOrderValue(itemNames);
+        restaurant.addToMenu("Sizzling brownie",319);
+        itemNames.add("Sizzling brownie");
+        assertEquals(initialOrderValue+319,restaurant.getOrderValue(itemNames));
+    }
+
+    @Test
+    public void not_selecting_any_item_should_throw_exception(){
+        addRestaurant();
+        ArrayList<String> itemNames = new ArrayList<String>();
+        assertThrows(ItemNotSelectedException.class,
+                ()->restaurant.getOrderValue(itemNames));
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 
 
     //>>>>>>>>>>>>>>>>>>>>>>METHODS ADDED FOR FACTORING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

@@ -67,5 +67,10 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderValue(ArrayList<String> itemNames) throws ItemNotSelectedException {
+
+        return 0;
+    }
+
 
 }
